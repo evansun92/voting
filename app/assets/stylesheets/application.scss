@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap-sprockets'; // 這行一定要在 "bootstrap 前面
+@import 'bootstrap';

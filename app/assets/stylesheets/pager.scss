@@ -1,0 +1,19 @@
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+.pagination span {
+  display: inline-block;
+}
+.pagination span a {
+  background-color: #888;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+.current {
+  background-color: #a44;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
