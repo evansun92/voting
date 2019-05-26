@@ -1,2 +1,33 @@
-<h1>候選人列表</h1>
-<a href="/candidates/new">新增候選人</a>
+    <h1>候選人列表</h1>
+
+<%= icon_link_to "新增候選人", new_candidate_path, "knight" %>
+
+    
+        <%= paginate @candidates %>
+    
+
+    <div class="candidate-list">
+
+        <% @candidates.each do |candidate| %>
+        <!-- 候選人 start -->
+        <div class="candidate-card">
+            <div class="avatar">
+                <img src="https://picsum.photos/400/300/?random=<%= candidate.id %>">
+            </div>
+            <div class="info">
+                <h2>得票數：<%= candidate.votes.count %>票</h2>
+                <h2>姓名(年齡)：<%= candidate.name %> ( <%= candidate.age %> )</h2>
+                <h2>黨派：<%= candidate.party %></h2>
+                <!--<a href="/candidates/<%= candidate.id %>" class="more-detail">看政見</a>-->
+                <!--<%= link_to '看政見', candidate_path(candidate), class:'more-detail'%>-->
+                <div class="btn-group">
+                    <%= link_to '政見', candidate, class:'more-detail' %>
+                    <%= link_to '投票', vote_candidate_path(candidate), method: 'patch', class:'vote', data: {confirm: '確定投給這位嗎？'} %>
+                    <%= link_to '修改', edit_candidate_path(candidate), class:'update' %>
+                    <%= link_to '刪除', candidate, method: 'delete', class:'destroy', data: {confirm: '確定要刪除？'}%>
+                </div>
+            </div>
+        </div>
+        <!-- 候選人 end -->
+        <% end %>
+    </div>
