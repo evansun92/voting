@@ -1,0 +1,30 @@
+nav.top-nav {
+  background-color: #95b8bf;
+  text-align: right;
+  ul {
+    list-style: none;
+    margin-right: 20px;
+    li {
+      display: inline-block;
+      color: #fff;
+      padding: 20px 10px;
+      margin: 10px, 5px;
+      font-size: 20px;
+      a {
+        text-decoration: none;
+        color: #fff;
+        transition: 0.3s;
+      }
+      a:hover {
+        color: #365359;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+.notice,
+.alert {
+  color: #434059;
+  font-size: 20px;
+}

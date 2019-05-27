@@ -1,0 +1,7 @@
+<% current_user.votes.each do |vote| %>
+  <ul>
+    <li>ip: <%= vote.ip_adress %></li>
+    <li>email: <%= vote.user.email %></li>
+    <li>time: <%= vote.created_at %></li>
+  </ul>
+<% end %>
