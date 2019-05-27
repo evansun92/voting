@@ -1,19 +1,29 @@
 .pagination {
   width: 100%;
   text-align: center;
-}
-.pagination span {
-  display: inline-block;
-}
-.pagination span a {
-  background-color: #888;
-  color: #fff;
-  border-radius: 5px;
-  padding: 5px;
-}
-.current {
-  background-color: #a44;
-  color: #fff;
-  border-radius: 5px;
-  padding: 5px;
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 2px;
+    a {
+      background-color: #888;
+      color: #fff;
+      border-radius: 10px;
+      padding: 5px 10px;
+      vertical-align: middle;
+      transition: 0.3s;
+    }
+    a:hover {
+      background-color: #333;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+  }
+  .current {
+    background-color: #a44;
+    color: #fff;
+    border-radius: 10px;
+    vertical-align: middle;
+    padding: 5px 10px;
+  }
 }

@@ -6,4 +6,17 @@ module ApplicationHelper
       end
     end
   end
+
+  def flash_message(msg_type)
+    # %Q = " "
+    # %q = ' '
+    %Q(<p class='#{msg_type}'>#{flash[msg_type]}</p>).html_safe
+    # <p class="notice"><%= notice %></p>
+    # <p class="alert"><%= alert %></p>
+  end
+
+  def delete_link_to(label, url)
+    link_to label, url, method: 'delete', class:'destroy', data: {confirm: '確定要刪除？'}
+    # <%= link_to '刪除', candidate, method: 'delete', class:'destroy', data: {confirm: '確定要刪除？'}%>
+  end
 end

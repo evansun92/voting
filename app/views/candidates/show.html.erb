@@ -7,4 +7,12 @@
     </ul>
 
 <%= icon_link_to '回候選人列表', root_path, 'queen' %>
+
+<!--<% @candidate.votes.each do |vote| %>
+        <li><%= vote.user.email %></li>
+    <% end %>-->
+    
+<% @candidate.users.each do |user| %> <!--解決N+1-->
+    <li><%= user.email %></li>
+<% end %>
 </div>
