@@ -10,7 +10,7 @@ module ApplicationHelper
   def flash_message(msg_type)
     # %Q = " "
     # %q = ' '
-    %Q(<p class='#{msg_type}'>#{flash[msg_type]}</p>).html_safe
+    %Q|<p class='#{msg_type}'>#{flash[msg_type]}</p>|.html_safe #用(),{},||,\\包起來都可以，html_safe表示此資料可安全顯示
     # <p class="notice"><%= notice %></p>
     # <p class="alert"><%= alert %></p>
   end

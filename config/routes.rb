@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     #collection
   end
 
-  namespace :admin do #admin 後台才能修改刪除
+  namespace :admin do #admin 後台才能修改刪除，namespace建立一個:admin資料結構與:candidates同層
     root 'pages#index'
     resources :candidates
   end

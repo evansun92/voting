@@ -9,11 +9,13 @@ class CandidatesController < ApplicationController
 
   def new
     @candidate = Candidate.new
+    authorize @candidate
     # render file: '../views/candidates/new.html.erb'
   end
 
   def create #不需要成功畫面
     @candidate = Candidate.new(candidate_params)
+    authorize @candidate
       
     # @candidate.name = params[:candidate][:name] #不需.save 因有明確指定給定目標
     # @candidate.age = params[:candidate][:age] #不需.save 因有明確指定給定目標
@@ -34,7 +36,9 @@ class CandidatesController < ApplicationController
   def edit
     #before_action
     # redirect_to root_path, alert: '需要登入' unless user_signed_in?
-    # 使用devise內建的before_action
+    # 使用devise內建的before_action :authenticate_user!
+
+    authorize @candidate
   end
 
   def update
@@ -63,12 +67,12 @@ class CandidatesController < ApplicationController
     # v.candidate = @candidate
     # v.save
 
-    #counter cache 解決n+1
+    #在 model 加 counter cache 解決n+1
     
     #從登入者角度來新增
     current_user.votes.create(ip_adress: request.remote_ip, candidate: @candidate)
     #從候選人角度來新增
-    #@candidate.votes.create(ip_adress: request.remote_ip, user: current_user)
+    # @candidate.votes.create(ip_adress: request.remote_ip, user: current_user)
 
     flash[:notice] = '投票完成'
     redirect_to root_path
@@ -76,6 +80,8 @@ class CandidatesController < ApplicationController
 
   def destroy
     #before_action
+    authorize @candidate
+
     @candidate.destroy if @candidate
     flash[:notice] = '資料已刪除'
     redirect_to root_path
@@ -83,7 +89,7 @@ class CandidatesController < ApplicationController
 
   private
   def candidate_params
-      params.require(:candidate).permit(:name, :age, :party, :platform) #明確指定此四欄位才能.save
+    params.require(:candidate).permit(:name, :age, :party, :platform, :avatar) #明確指定此四欄位才能.save
   end
 
   def find_candidate

@@ -1,6 +1,6 @@
 <h1>候選人列表</h1>
 
-<%= icon_link_to "新增候選人", new_candidate_path, "knight" %>
+<%= icon_link_to "新增候選人", new_candidate_path, "knight" if policy(Candidate).new? %>
     
     <%= paginate @candidates %>
 
@@ -10,7 +10,8 @@
         <!-- 候選人 start -->
         <div class="candidate-card">
             <div class="avatar">
-                <img src="https://picsum.photos/400/300/?random=<%= candidate.id %>">
+                <!--<img src="<%= candidate.avatar %>">-->
+                <%= image_tag candidate.avatar_url(:small) if candidate.avatar? %>
             </div>
             <div class="info">
                 <h2>得票數：<%= candidate.vote %>票</h2>
@@ -21,8 +22,8 @@
                 <div class="btn-group">
                     <%= link_to '政見', candidate, class:'more-detail' %>
                     <%= link_to '投票', vote_candidate_path(candidate), method: 'patch', class:'vote', data: {confirm: '確定投給這位嗎？'} if user_signed_in? %>
-                    <%= link_to '修改', edit_candidate_path(candidate), class:'update' if user_signed_in? %>
-                    <%= delete_link_to '刪除', candidate if user_signed_in? %> <!--將較長的link_to拉出去helper定義-->
+                    <%= link_to '修改', edit_candidate_path(candidate), class:'update' if policy(candidate).edit? %>
+                    <%= delete_link_to '刪除', candidate if policy(candidate).destroy? %> <!--將較長的link_to拉出去helper定義-->
                 </div>
             </div>
         </div>

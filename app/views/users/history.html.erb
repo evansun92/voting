@@ -2,6 +2,8 @@
   <ul>
     <li>ip: <%= vote.ip_adress %></li>
     <li>email: <%= vote.user.email %></li>
+    <li>vote for: <%= vote.candidate.name %> (<%= vote.candidate.age %>) <%= vote.candidate.party %></li>
     <li>time: <%= vote.created_at %></li>
   </ul>
+  <hr>
 <% end %>

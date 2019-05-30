@@ -1,4 +1,6 @@
 class Candidate < ApplicationRecord
+    mount_uploader :avatar, AvatarUploader
+
     validates :name, presence: true #驗證 姓名 欄位必填
     validates_numericality_of :age, greater_than_or_equal_to: 40 #驗證 年齡 必須≥40
 

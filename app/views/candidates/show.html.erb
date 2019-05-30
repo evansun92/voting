@@ -9,10 +9,11 @@
 <%= icon_link_to '回候選人列表', root_path, 'queen' %>
 
 <!--<% @candidate.votes.each do |vote| %>
-        <li><%= vote.user.email %></li>
+        <li><%= vote.user.email %></li>     先查全部vote再查user產生N+1問題
     <% end %>-->
-    
-<% @candidate.users.each do |user| %> <!--解決N+1-->
+<hr>
+<h4>得票記錄：</h4>
+<% @candidate.users.each do |user| %> <!--有多對多關連可直接取得對方資料，不需透過中間的vote，解決N+1-->
     <li><%= user.email %></li>
 <% end %>
 </div>

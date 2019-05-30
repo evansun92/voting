@@ -1,5 +1,7 @@
 class Admin::PagesController < Admin::BaseController
-  #提升一層class, before_action 放在base_controller
+  #改繼承 Admin::BaseController
+  
   def index
+    authorize Candidate #驗證candidate_policy.rb <-自行改檔名
   end
 end
