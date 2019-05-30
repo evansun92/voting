@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_05_29_080045) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "candidates", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -40,14 +37,13 @@ ActiveRecord::Schema.define(version: 2019_05_29_080045) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.bigint "candidate_id"
+    t.integer "candidate_id"
     t.string "ip_adress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "votes", "candidates"
 end

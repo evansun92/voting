@@ -89,7 +89,7 @@ class CandidatesController < ApplicationController
 
   private
   def candidate_params
-    params.require(:candidate).permit(:name, :age, :party, :platform, :avatar) #明確指定此四欄位才能.save
+    params.require(:candidate).permit(:name, :age, :party, :platform, :avatar) #明確指定此五欄資料安全才能.save
   end
 
   def find_candidate
