@@ -8,14 +8,14 @@ class CandidatesController < ApplicationController
   end
 
   def new
+    authorize Candidate
     @candidate = Candidate.new
-    authorize @candidate
-    # render file: '../views/candidates/new.html.erb'
+    # authorize @candidate #若用@candidate需寫在宣告的下面
   end
 
   def create #不需要成功畫面
     @candidate = Candidate.new(candidate_params)
-    authorize @candidate
+    authorize @candidate #若用@candidate需寫在宣告的下面
       
     # @candidate.name = params[:candidate][:name] #不需.save 因有明確指定給定目標
     # @candidate.age = params[:candidate][:age] #不需.save 因有明確指定給定目標
@@ -67,7 +67,7 @@ class CandidatesController < ApplicationController
     # v.candidate = @candidate
     # v.save
 
-    #在 model 加 counter cache 解決n+1
+    #在 model 加 counter cache 解決n+1 query
     
     #從登入者角度來新增
     current_user.votes.create(ip_adress: request.remote_ip, candidate: @candidate)

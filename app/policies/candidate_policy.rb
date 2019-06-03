@@ -6,10 +6,11 @@ class CandidatePolicy
     @record = record
   end
 
-#各action的使用權限設定，但這裡的def是方法（不是在controller)
+#在candidate_controller的各action的使用權限設定，但這裡的def是方法（不是在controller)
   def index? 
-    user && user.admin? #在user.rb def admin?
-    # false
+    user && user.admin?
+    #要在此使用.admin?方法，則需在user.rb 定義方法 def admin?
+    # false #用預設false的話，代表所有user都沒有權限
   end
 
   # def show?
