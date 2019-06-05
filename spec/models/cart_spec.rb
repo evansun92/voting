@@ -7,7 +7,7 @@ RSpec.describe Cart, type: :model do
   #   @cart = Cart.new
   # end
 
-  let(:cart) {Cart.new}
+  # let(:cart) {Cart.new}
 
   describe '基本功能' do
     it '可以把商品丟到購物車裡，然後購物車裡就有東西了' do
@@ -26,8 +26,8 @@ RSpec.describe Cart, type: :model do
     end
 
     it '商品可以放到購物車裡，也可以再拿出來' do
-      p1 = create(:product)  #-> FactoryBot shorthand p1 = FactoryBot.create(:product)
-      p2 = create(:product)  #-> FactoryBot shorthand p2 = FactoryBot.create(:product)
+      p1 = create(:product)  #-> FactoryBot shorthand，p1 = FactoryBot.create(:product)
+      p2 = create(:product)  #-> FactoryBot shorthand，p2 = FactoryBot.create(:product)
 
       2.times {cart.add_item(p1.id)}
       3.times {cart.add_item(p2.id)}
@@ -81,11 +81,16 @@ RSpec.describe Cart, type: :model do
   end
 
   private
+  # let(:cart) {Cart.new}
+  def cart
+    @cc ||= Cart.new
+  end
+
   def session_hash
     return {
-      items: [
-        { product_id: 1, quantity: 3},
-        { product_id: 2, quantity: 5}
+      'items'=> [
+        { 'product_id' => 1, 'quantity' => 3},
+        { 'product_id' => 2, 'quantity' => 5}
       ]
     }
   end

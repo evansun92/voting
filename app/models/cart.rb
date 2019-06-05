@@ -46,18 +46,18 @@ class Cart
     # ]
 
     result = items.map{ |item|
-      {product_id: item.product_id, quantity: item.quantity}
+      {'product_id' => item.product_id, 'quantity' => item.quantity}
     }
 
-    return {items: result}
+    return {'items' => result}
   end
 
   def self.from_hash(hash = nil)
-    if hash && hash[:items]
+    if hash && hash['items']
       #重組
       #組出充滿 CartItem 的陣列
-      all_items = hash[:items].map { |item|
-      CartItem.new(item[:product_id], item[:quantity]) #cart_item.rb
+      all_items = hash['items'].map { |item|
+      CartItem.new(item['product_id'], item['quantity']) #cart_item.rb
     }
     Cart.new(all_items)
     else
