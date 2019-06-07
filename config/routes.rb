@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   
   resources :products, only: [:index, :show]
 
-resource :cart, only:[:show, :destroy] do #單數resource路徑不會有/:id 
-    collection do
-    put :add, path: 'add/:id' #put更新資料，post新增資料，  /cart/add/3
+  resource :cart, only:[:show, :destroy] do #單數resource路徑不會有/:id 
+      collection do
+      put :add, path: 'add/:id' #put更新資料，post新增資料，  /cart/add/3
+      get :checkout                                      #/cart/checkout
+      end
     end
-  end
     # resources :carts #複數會有/:id路徑
+
+  resources :orders, only: [:index, :show, :new, :create]
 
   resources :candidates do #前台應只能顯示跟投票
     #member

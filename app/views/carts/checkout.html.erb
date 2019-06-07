@@ -1,0 +1,24 @@
+<h1>結帳</h1>
+
+<%= render 'cart' %>
+
+<%= simple_form_for(@order) do |form| %>
+<div class="checkout">
+  <%= form.input :recipient, label: false, placeholder: '請出入收件人姓名' %>
+  <%= form.input :phone, label: false, placeholder: '市話或行動電話' %>
+  <%= form.input :address, label: false, placeholder: '收件人地址' %>
+  <%= form.input :note, label: false, placeholder: '備註' %>
+
+  <hr>
+  <div id="payment-form"></div>
+
+  <%= form.submit '確認送出', class: 'btn btn-primary' %>
+</div>
+<% end %>
+
+<script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+
+<script>
+    var clientToken = "<%= @token %>";
+  braintree.setup(clientToken, "dropin", { container: "payment-form" });
+</script> 

@@ -1,0 +1,25 @@
+.cart-table {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+  font-size: 20px;
+  .total-price {
+    border-top: 1px solid #eee;
+    font-weight: bold;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px;
+  transition: 0.3s;
+}
+.btn:hover {
+  transition: 0.3s;
+}
+
+.checkout {
+  margin-top: 40px;
+  width: 50%;
+  margin: auto;
+}

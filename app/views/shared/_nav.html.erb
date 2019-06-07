@@ -3,11 +3,11 @@
     <li><%= link_to '首頁', root_path %></li>
   <% if user_signed_in? %>
 
-    <% unless current_cart.empty? %>
-    <li>購物車(<%= current_cart.items.count %>)</li>
+  <% unless current_cart.empty? %>
+    <li><%= link_to "購物車(#{current_cart.items.count})", cart_path %></li>
     <li>＄<%= current_cart.total_price %></li>
     <li><%= link_to '清空', cart_path, method: 'delete' %></li>
-    <% end %>
+  <% end %>
 
     <li>Hi, <%= current_user.email %></li>
     <li><%= link_to '投票紀錄', history_path %></li>
