@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-
+  validates :recipient, presence: true
   has_many :order_items
 
 

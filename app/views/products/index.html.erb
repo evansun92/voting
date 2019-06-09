@@ -2,11 +2,17 @@
 <h1>產品列表</h1>
 
 <% @products.each do |product| %>
-<ul>
-  <%= link_to 'Add Cart', add_cart_path(product.id), method: 'put' %>
-  <li>產品名稱： <%= product.title %> </li>
-  <li>產品金額： <%= product.price %> </li>
-  <li>產品敘述： <%= product.description %> </li>
-</ul>
+<div class="pro">
+  <div class="pro-info">
+    <ul>
+      <li>產品名稱： <%= product.title %> </li>
+      <li>產品金額： <%= product.price %> </li>
+      <li>產品敘述： <%= product.description %> </li>
+    </ul>
+  </div>
+  <div class="pro-add">
+    <%= link_to 'ADD CART', add_cart_path(product.id), method: 'put', class: 'btn btn-primary' %>
+  </div>
+</div>
 <hr>
 <% end %>

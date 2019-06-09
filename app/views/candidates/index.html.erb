@@ -21,7 +21,7 @@
                 <!--<%= link_to '看政見', candidate_path(candidate), class:'more-detail'%>-->
                 <div class="btn-group">
                     <%= link_to '政見', candidate, class:'more-detail' %>
-                    <%= link_to '投票', vote_candidate_path(candidate), method: 'patch', class:'vote', data: {confirm: '確定投給這位嗎？'} if user_signed_in? %>
+                    <%= link_to '投票', vote_candidate_path(candidate), method: 'patch', class:'vote', data: {confirm: "確定投給 #{candidate.name} 嗎？"} if user_signed_in? %>
                     <%= link_to '修改', edit_candidate_path(candidate), class:'update' if policy(candidate).edit? %>
                     <%= delete_link_to '刪除', candidate if policy(candidate).destroy? %> <!--將較長的link_to拉出去helper定義-->
                 </div>

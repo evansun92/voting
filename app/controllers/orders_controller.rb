@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     #訂單角度新增訂單
     @order = Order.new(order_params)
     @order.user = current_user
+    
     #使用者角度新增訂單
     @order = current_user.orders.build(order_params)
     
