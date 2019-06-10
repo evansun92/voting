@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     # resources :carts #複數會有/:id路徑
 
+
   resources :orders, only: [:index, :show, :new, :create]
 
   resources :candidates do #前台應只能顯示跟投票

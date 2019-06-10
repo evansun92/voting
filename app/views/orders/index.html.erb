@@ -1,1 +1,9 @@
 <h1>訂單</h1>
+<% @order.each do |order| %>
+  <ul>
+    <li>訂單號： <%= order.id %></li>
+    <li>狀態： <%= order.state %></li>
+    <li>收件人： <%= order.recipient %></li>
+  </ul>
+  <hr>
+<% end %>

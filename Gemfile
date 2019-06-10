@@ -48,6 +48,8 @@ gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem "braintree", "~> 2.96.0"
+gem 'aasm', '~> 5.0', '>= 5.0.5'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
