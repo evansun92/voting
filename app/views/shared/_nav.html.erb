@@ -2,7 +2,9 @@
   <ul>
     <li><%= link_to '首頁', root_path %></li>
     <li><%= link_to '產品', products_path %></li>
+    
   <% if user_signed_in? %>
+    <li><%= link_to '訂單', orders_path %></li>
 
   <% unless current_cart.empty? %>
     <li><%= link_to "購物車(#{current_cart.items.count})", cart_path %></li>

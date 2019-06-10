@@ -3,6 +3,13 @@ class OrdersController < ApplicationController
   include CartsHelper
   include Payable
 
+  def index
+   #訂單角度
+   # @order = Order.where(user: current_user)
+   #使用者角度
+   @order = current_user.orders.order(id: :desc)
+  end
+
   def create
     #建立訂單
     #訂單角度新增訂單
