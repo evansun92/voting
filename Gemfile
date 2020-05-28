@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'kaminari', '~>1.1', '>=1.1.0'
+gem 'kaminari', '~>1.2'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
 gem 'simple_form', '~> 4.1'
